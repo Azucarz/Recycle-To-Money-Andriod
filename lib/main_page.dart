@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'login_page.dart'; // Import halaman login
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
           bodySmall: TextStyle(color: Colors.black),
         ),
       ),
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }
@@ -59,7 +59,7 @@ class HomePage extends StatelessWidget {
               children: <Widget>[
                 // Logo image
                 Image.asset(
-                  'assets/Image1/rc.jpg',
+                  'assets/image1/rc.jpg',
                   width: 100, // Sesuaikan ukuran logo
                   height: 100,
                 ),

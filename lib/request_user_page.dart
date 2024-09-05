@@ -5,6 +5,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,6 +20,8 @@ class MyApp extends StatelessWidget {
 }
 
 class RequestPickupPage extends StatelessWidget {
+  const RequestPickupPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,12 +43,12 @@ class RequestPickupPage extends StatelessWidget {
                 Row(
                   children: [
                     Image.asset(
-                      'assets/Image1/rc.jpg',
+                      'assets/image1/rc.jpg',
                       width: 50, // Ukuran logo
                       height: 50,
                     ),
-                    SizedBox(width: 8),
-                    Text(
+                    const SizedBox(width: 8),
+                    const Text(
                       'Request Pickup',
                       style: TextStyle(
                         fontSize: 24,
@@ -54,7 +58,7 @@ class RequestPickupPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 // Kotak foto rumah
                 Container(
                   width: double.infinity,
@@ -64,14 +68,14 @@ class RequestPickupPage extends StatelessWidget {
                     child: Text('Foto Rumah', style: TextStyle(color: Colors.green[600])),
                   ),
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 // Keterangan alamat dan nomor rumah
-                Text(
+                const Text(
                   'Alamat: Jl. Contoh No. 123',
                   style: TextStyle(fontSize: 16),
                 ),
-                SizedBox(height: 8),
-                Text(
+                const SizedBox(height: 8),
+                const Text(
                   'Nomor Rumah: 123',
                   style: TextStyle(fontSize: 16),
                 ),
@@ -90,19 +94,19 @@ class RequestPickupPage extends StatelessWidget {
                   onPressed: () {
                     // Aksi tombol batal
                   },
-                  child: Text('Cancel'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.red, // Warna tombol batal
                   ),
+                  child: Text('Cancel'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     // Aksi tombol pickup
                   },
-                  child: Text('Pickup'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green, // Warna tombol pickup
                   ),
+                  child: Text('Pickup'),
                 ),
               ],
             ),
