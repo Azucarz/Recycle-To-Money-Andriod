@@ -5,6 +5,8 @@ void main() {
 }
 
 class SmartWasteApp extends StatelessWidget {
+  const SmartWasteApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,6 +21,8 @@ class SmartWasteApp extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,11 +42,11 @@ class HomePage extends StatelessWidget {
               children: [
                 // Logo di atas
                 Image.asset(
-                  'assets/Image1/rc.jpg',
+                  'assets/image1/rc.jpg',
                   width: 120,  // Sesuaikan ukuran logo
                   height: 120,
                 ),
-                SizedBox(height: 16), // Jarak antara logo dan tulisan
+                const SizedBox(height: 16), // Jarak antara logo dan tulisan
                 // Tulisan "Smart Waste"
                 Text(
                   'Smart Waste',
@@ -52,13 +56,13 @@ class HomePage extends StatelessWidget {
                     color: Colors.green[800],  // Warna teks hijau
                   ),
                 ),
-                SizedBox(height: 32), // Jarak antara teks dan grid
+                const SizedBox(height: 32), // Jarak antara teks dan grid
                 // Grid Menu
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: GridView.builder(
                     shrinkWrap: true,  // Agar GridView bisa digabung dengan elemen lain
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
                       mainAxisSpacing: 16,
                       crossAxisSpacing: 16,
@@ -84,7 +88,7 @@ class HomePage extends StatelessWidget {
                                 size: 48,
                                 color: Colors.green[700],
                               ),
-                              SizedBox(height: 8),
+                              const SizedBox(height: 8),
                               Text(
                                 'Menu ${index + 1}',
                                 style: TextStyle(

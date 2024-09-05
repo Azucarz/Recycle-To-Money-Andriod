@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: LoginPage(),
+      home: const LoginPage(),
     );
   }
 }
@@ -55,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
                 children: <Widget>[
                   // Menambahkan logo recycle di atas judul
                   Image.asset(
-                    'assets/Image1/rc.jpg',
+                    'assets/image1/rc.jpg',
                     height: 100,
                     width: 100,
                   ),
