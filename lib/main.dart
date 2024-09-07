@@ -16,9 +16,9 @@ Future<void> main() async {
 
   try {
     final response = await responseStream.toList();
-    print('Connected successfully to Supabase!');
+    debugPrint('Connected successfully to Supabase!');
   } catch (e) {
-    print('Error connecting to Supabase: $e');
+    debugPrint('Error connecting to Supabase: $e');
   }
 
  
