@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(f_request());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class f_request extends StatelessWidget {
+  const f_request({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,13 +14,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: RequestPickupPage(),
+      home: f_requestRPP(),
     );
   }
 }
 
-class RequestPickupPage extends StatelessWidget {
-  const RequestPickupPage({super.key});
+class f_requestRPP extends StatelessWidget {
+  const f_requestRPP({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,23 +32,21 @@ class RequestPickupPage extends StatelessWidget {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // Background Image
           Image.asset(
-            'assets/image2/bg.jpg',
+            'assets/image2/bg.jpg', // bg 
             fit: BoxFit.cover,
           ),
-          // Content
+
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Header with Logo and Title
                 Row(
                   children: [
                     Image.asset(
-                      'assets/image1/rc.jpg',
-                      width: 50, // Ukuran logo
+                      width: 50,
+                      'assets/image1/rc.jpg', //tempaat logo
                       height: 50,
                     ),
                     const SizedBox(width: 8),
@@ -56,35 +54,33 @@ class RequestPickupPage extends StatelessWidget {
                       'Request Pickup',
                       style: TextStyle(
                         fontSize: 24,
-                        fontWeight: FontWeight.bold,
                         color: Colors.green,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ],
                 ),
                 const SizedBox(height: 16),
-                // Kotak foto rumah
                 Image.asset(
-                'assets/Hms.jpg',
+                'assets/Hms.jpg', //foto rumah
                 width: double.infinity,
                 height: 200,
-                fit: BoxFit.cover,  // Menyesuaikan gambar agar memenuhi kontainer
+                fit: BoxFit.cover,  
                 ),
                 const SizedBox(height: 16),
-                // Keterangan alamat dan nomor rumah
                 const Text(
-                  'Logitude: 13.7563',
+                  'Logitude: 13.7563', //keterangan logitude
                   style: TextStyle(fontSize: 16),
                 ),
                 const SizedBox(height: 8),
                 const Text(
-                  'Latitude: 100.5018',
                   style: TextStyle(fontSize: 16),
+                  'Latitude: 100.5018', //keterangan latitude
                 ),
               ],
             ),
           ),
-          // Tombol batal dan pickup, diposisikan lebih tinggi
+
           Positioned(
             bottom: MediaQuery.of(context).size.height * 0.1, // Jarak dari bawah 
             left: 60,
@@ -94,7 +90,8 @@ class RequestPickupPage extends StatelessWidget {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    // Aksi tombol batal
+                    //future enhancement. 
+                    //Self reminder learn how to integrate button animation,tried to do the slide feature but didnt work,youtube videos didnt help , post on stackoverflow and try to ask.
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.red, // Warna tombol batal
@@ -103,12 +100,13 @@ class RequestPickupPage extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    // Aksi tombol pickup
+                    // future enhancement 
                   },
+                  
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green, // Warna tombol pickup
                   ),
-                  child: Text('Pickup'),
+                  child: Text('Pickuup'),//add the feature where it will send to the database later
                 ),
               ],
             ),

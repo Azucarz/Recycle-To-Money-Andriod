@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatelessWidget {
-  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController unameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController psswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +26,7 @@ class RegisterPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                // Logo di atas tulisan "Smart Waste"
-                Center(
+                Center( // Logo di atas tulisan "Trash To Cash"
                   child: Column(
                     children: [
                       Image.asset(
@@ -36,7 +35,7 @@ class RegisterPage extends StatelessWidget {
                       ),
                       SizedBox(height: 8.0),
                       Text(
-                        'Smart Waste',
+                        'Trash To Cash',
                         style: TextStyle(
                           fontSize: 24.0,
                           fontWeight: FontWeight.bold,
@@ -47,20 +46,16 @@ class RegisterPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 32.0),
-
-                // Field User Name
                 TextField(
-                  controller: usernameController,
+                  controller: unameController,
                   decoration: InputDecoration(
-                    labelText: 'User Name',
+                    labelText: 'Your Name',
                     filled: true,
                     fillColor: Colors.white.withOpacity(0.8),
                     border: OutlineInputBorder(),
                   ),
                 ),
                 SizedBox(height: 16.0),
-
-                // Field Email
                 TextField(
                   controller: emailController,
                   decoration: InputDecoration(
@@ -71,10 +66,8 @@ class RegisterPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 16.0),
-
-                // Field Password
                 TextField(
-                  controller: passwordController,
+                  controller: psswordController,
                   obscureText: true,
                   decoration: InputDecoration(
                     labelText: 'Password',
@@ -85,14 +78,12 @@ class RegisterPage extends StatelessWidget {
                 ),
                 SizedBox(height: 32.0),
 
-                // Tombol Create Account
                 ElevatedButton(
-                  onPressed: () {
-                    // Fungsi yang akan dijalankan saat tombol ditekan
-                    String username = usernameController.text;
+                  onPressed: () {// Tombol Create Account
+                    String uname = unameController.text;// Fungsi yang akan dijalankan saat tombol ditekan
                     String email = emailController.text;
-                    String password = passwordController.text;
-                    print('User Name: $username, Email: $email, Password: $password');
+                    String password = psswordController.text;
+                    print('User Name: $uname, Email: $email, Password: $password');
                   },
                   child: Text('Create Account'),
                   style: ElevatedButton.styleFrom(

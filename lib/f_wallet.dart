@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(f_wallet());
 }
 
-class MyApp extends StatelessWidget {
+class f_wallet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,12 +22,12 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.green, // Warna AppBar
         ),
       ),
-      home: WalletPage(),
+      home: f_walletWP(),
     );
   }
 }
 
-class WalletPage extends StatelessWidget {
+class  f_walletWP extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,28 +38,27 @@ class WalletPage extends StatelessWidget {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // Background image
+          
           Positioned.fill(
             child: Image.asset(
               'assets/image2/bg.jpg',
               fit: BoxFit.cover,
             ),
           ),
-          // Content
+        
           Padding(
             padding: EdgeInsets.all(16.0),
             child: Column(
               children: [
-                // Logo
+            
                 Image.asset(
                   'assets/image1/rc.jpg',
                   width: 100,
                   height: 100,
                 ),
                 SizedBox(height: 16.0),
-                // Title
                 Text(
-                  'Smart Waste',
+                  'Trash To Cash',
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -79,7 +78,7 @@ class WalletPage extends StatelessWidget {
                     ),
                     // Jumlah koin
                     Text(
-                      '1000 Coins', // Ganti dengan jumlah koin sesuai kebutuhan
+                      '10 Coins', // Ganti dengan jumlah koin sesuai kebutuhan
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,

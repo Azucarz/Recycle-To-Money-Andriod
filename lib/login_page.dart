@@ -4,16 +4,16 @@ import 'worker_main.dart';
 import 'profil_user_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const loginPge());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class loginPge extends StatelessWidget {
+  const loginPge({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'GoGreen Login',
+      title: 'Trash To Cash Login',
       theme: ThemeData(
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -58,15 +58,15 @@ class _LoginPageState extends State<LoginPage> {
                   Image.asset(
                     'assets/image1/rc.jpg',
                     height: 100,
-                    width: 100,
+                      width: 100,
                   ),
                   const SizedBox(height: 20.0),
                   const Text(
-                    'Smart Waste',
+                       'Trash To Cash',
                     style: TextStyle(
                       fontSize: 32,
-                      fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 67, 230, 49),
+                      fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -85,7 +85,7 @@ class _LoginPageState extends State<LoginPage> {
                             TextFormField(
                               controller: _emailController,
                               decoration: InputDecoration(
-                                labelText: 'ID Number',
+                                labelText: 'Email ID',
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
@@ -93,7 +93,7 @@ class _LoginPageState extends State<LoginPage> {
                               keyboardType: TextInputType.emailAddress,
                               validator: (value) {
                                 if (value!.isEmpty) {
-                                  return 'Please enter your ID Number';
+                                  return 'Please enter your Email ID';
                                 }
                                 return null;
                               },
@@ -110,7 +110,7 @@ class _LoginPageState extends State<LoginPage> {
                               obscureText: true,
                               validator: (value) {
                                 if (value!.isEmpty) {
-                                  return 'Please enter your password';
+                                  return 'Please enter your passwod';
                                 }
                                 return null;
                               },
@@ -127,10 +127,13 @@ class _LoginPageState extends State<LoginPage> {
                                     const EdgeInsets.symmetric(vertical: 15.0),
                               ),
                               onPressed: () {
-                                String email = _emailController.text;
+                                String emil = _emailController.text;
                                 String password = _passwordController.text;
 
-                                if (email == 'customer@gmail.com' &&
+
+                                //Brackets backup if the api fails
+
+                                if (emil == 'customer@gmail.com' &&
                                     password == 'customer') {
                                   Navigator.push(
                                     context,
@@ -139,7 +142,7 @@ class _LoginPageState extends State<LoginPage> {
                                             const SmartWasteApp()),
                                   );
                                   debugPrint("Customer logged in");
-                                } else if (email == 'worker@gmail.com' &&
+                                } else if (emil == 'worker@gmail.com' &&
                                     password == 'worker') {
                                   Navigator.push(
                                     context,

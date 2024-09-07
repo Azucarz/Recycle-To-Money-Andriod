@@ -1,61 +1,57 @@
-import 'package:flutter/material.dart';
-import 'f_request.dart';
+import 'package:flutter/material.dart'; //import utama dart
+import 'f_request.dart'; //buat manggil request.dart
 
 void main() {
-  runApp(MyApp());
+  runApp(f_bin()); 
 }
 
-class MyApp extends StatelessWidget {
+class f_bin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primaryColor: Colors.green, // Tema hijau
+        primaryColor: Colors.green, // Tema hijau 
       ),
-      home: CustomGridPage(),
+      home: f_binCGP(),
     );
   }
 }
 
-class CustomGridPage extends StatelessWidget {
+class f_binCGP extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Trash To Cash'),
         centerTitle: true,
-        backgroundColor: Colors.green, // Warna AppBar
+        backgroundColor: Colors.green, // App Bar Color
       ),
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // Background image
           Positioned.fill(
             child: Image.asset(
-              'assets/image2/bg.jpg',
+              'assets/image2/bg.jpg', //image 2 untuk backgorund
               fit: BoxFit.cover,
             ),
           ),
-          // Content
           Padding(
             padding: EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                // Logo
                 Image.asset(
-                  'assets/image1/rc.jpg',
+                  'assets/image1/rc.jpg', //logo aplikasi
                   width: 100,
                   height: 100,
                 ),
                 SizedBox(height: 16.0),
-                // Title
                 Text(
-                  'Trash To Cash',
+                  'Trash To Cash', //judul tim
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white, // Warna teks
+                    color: Colors.white, // Text color
                   ),
                 ),
                 SizedBox(height: 16.0),
@@ -76,7 +72,7 @@ class CustomGridPage extends StatelessWidget {
                               child: Container(
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
-                                    image: AssetImage('assets/image${index + 3}.jpg'), // Ganti dengan path gambar sesuai index
+                                    image: AssetImage('assets/image${index + 3}.jpg'), // pakai index biar ngirit
                                     fit: BoxFit.cover,
                                   ),
                                   borderRadius: BorderRadius.circular(8.0),
@@ -86,11 +82,10 @@ class CustomGridPage extends StatelessWidget {
                             SizedBox(height: 8.0),
                             ElevatedButton(
                               onPressed: () {
-                                // Arahkan ke halaman f_request.dart
-                                Navigator.push(
+                                Navigator.push( //nafigasi 
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => RequestPickupPage(), // Ganti dengan nama kelas dari f_request.dart
+                                    builder: (context) => f_requestRPP(), //nafigasi
                                   ),
                                 );
                               },

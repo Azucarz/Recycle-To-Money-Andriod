@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+void main() {
+  runApp(ProfilePage());
+}
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -12,7 +15,6 @@ class ProfilePage extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          // Background image
           Positioned.fill(
             child: Image.asset(
               'assets/image2/bg.jpg',
@@ -23,16 +25,14 @@ class ProfilePage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Logo di atas
                 Image.asset(
-                  'assets/Image1/rc.jpg',
+                  'assets/Image1/rc.jpg',// Logo di atas
                   width: 120,
                   height: 120,
                 ),
                 const SizedBox(height: 16), // Jarak antara logo dan tulisan
-                // Tulisan profil
                 Text(
-                  'Your Profile',
+                  'Your Profile',// Tulisan profil
                   style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
@@ -52,7 +52,7 @@ class ProfilePage extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          'Name: John Doe',
+                          'Name: 0001',//call dari api 
                           style: TextStyle(
                             fontSize: 18,
                             color: Colors.green[800],
@@ -60,7 +60,7 @@ class ProfilePage extends StatelessWidget {
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          'Email: john.doe@example.com',
+                          'Email: customer@gmail.com',
                           style: TextStyle(
                             fontSize: 18,
                             color: Colors.green[800],
@@ -79,8 +79,7 @@ class ProfilePage extends StatelessWidget {
                             ),
                           ),
                           onPressed: () {
-                            // Logika logout atau kembali ke halaman login
-                            Navigator.pop(context);
+                            Navigator.pop(context);// Logika logout atau kembali ke halaman login
                           },
                           child: const Text(
                             'Logout',
