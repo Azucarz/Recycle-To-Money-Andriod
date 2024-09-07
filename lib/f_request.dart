@@ -73,12 +73,12 @@ class RequestPickupPage extends StatelessWidget {
                 const SizedBox(height: 16),
                 // Keterangan alamat dan nomor rumah
                 const Text(
-                  'Alamat: Jl. Contoh No. 123',
+                  'Logitude: 13.7563',
                   style: TextStyle(fontSize: 16),
                 ),
                 const SizedBox(height: 8),
                 const Text(
-                  'Nomor Rumah: 123',
+                  'Latitude: 100.5018',
                   style: TextStyle(fontSize: 16),
                 ),
               ],

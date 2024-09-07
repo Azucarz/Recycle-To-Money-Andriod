@@ -22,7 +22,7 @@ class CustomGridPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Smart Waste'),
+        title: Text('Trash To Cash'),
         centerTitle: true,
         backgroundColor: Colors.green, // Warna AppBar
       ),
@@ -51,7 +51,7 @@ class CustomGridPage extends StatelessWidget {
                 SizedBox(height: 16.0),
                 // Title
                 Text(
-                  'Smart Waste',
+                  'Trash To Cash',
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -94,7 +94,7 @@ class CustomGridPage extends StatelessWidget {
                                   ),
                                 );
                               },
-                              child: Text('Tombol ${index + 1}'),
+                              child: Text('Trash ${index + 1}'),
                             ),
                           ],
                         ),
