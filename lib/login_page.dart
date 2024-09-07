@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+import 'profil_page.dart';
 
-void main() {
+void main() async {
+  // Inisialisasi Supabase
+  await Supabase.initialize(
+    url: 'https://eicuolgrlmpkywitfblr.supabase.co', // URL Supabase Anda
+    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVpY3VvbGdybG1wa3l3aXRmYmxyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjQ3NzM0OTYsImV4cCI6MjA0MDM0OTQ5Nn0.e_fxtoz74yBNO1ircGFci2lIQ6dGeTNL02oTJhggx7U', // anonKey Supabase Anda
+  );
   runApp(const MyApp());
 }
 
@@ -31,13 +38,45 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final _supabaseClient = Supabase.instance.client;
+
+  String _errorMessage = '';
+
+  Future<void> _login() async {
+    final email = _emailController.text;
+    final password = _passwordController.text;
+
+    try {
+      final response = await _supabaseClient.auth.signInWithPassword(
+        email: email,
+        password: password,
+      );
+
+      if (response.session == null) {
+        setState(() {
+          _errorMessage = 'Login failed: Invalid email or password';
+        });
+        return;
+      }
+
+      // Login berhasil, arahkan ke halaman profile.dart
+      Navigator.pushReplacement(
+  context,
+  MaterialPageRoute(builder: (context) => const ProfilePage()),
+);
+    } catch (e) {
+      // Tangani kesalahan jika terjadi
+      setState(() {
+        _errorMessage = 'An error occurred: $e';
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-          // Gambar background
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
@@ -46,14 +85,12 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
-          // Konten di atas gambar background
           Center(
             child: SingleChildScrollView(
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  // Menambahkan logo recycle di atas judul
                   Image.asset(
                     'assets/image1/rc.jpg',
                     height: 100,
@@ -65,7 +102,7 @@ class _LoginPageState extends State<LoginPage> {
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 67, 230, 49), // Ubah warna teks untuk kontras dengan background
+                      color: Color.fromARGB(255, 67, 230, 49),
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -84,7 +121,7 @@ class _LoginPageState extends State<LoginPage> {
                             TextFormField(
                               controller: _emailController,
                               decoration: InputDecoration(
-                                labelText: 'ID Number',
+                                labelText: 'Email',
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
@@ -92,7 +129,7 @@ class _LoginPageState extends State<LoginPage> {
                               keyboardType: TextInputType.emailAddress,
                               validator: (value) {
                                 if (value!.isEmpty) {
-                                  return 'Please enter your ID Number';
+                                  return 'Please enter your Email';
                                 }
                                 return null;
                               },
@@ -117,8 +154,8 @@ class _LoginPageState extends State<LoginPage> {
                             const SizedBox(height: 40.0),
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.green, // Warna tombol hijau
-                                minimumSize: const Size(double.infinity, 50), // Lebar penuh
+                                backgroundColor: Colors.green,
+                                minimumSize: const Size(double.infinity, 50),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
@@ -126,24 +163,25 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                               onPressed: () {
                                 if (_formKey.currentState!.validate()) {
-                                  // Proses login bisa dilakukan di sini
-                                  String email = _emailController.text;
-                                  String password = _passwordController.text;
-
-                                  // Sebagai contoh, kita akan mencetaknya di konsol
-                                  print('Email: $email, Password: $password');
-                                  
-                                  // Setelah login berhasil, Anda bisa navigasi ke halaman lain
+                                  _login();
                                 }
                               },
                               child: const Text(
                                 'Login',
                                 style: TextStyle(
                                   fontSize: 18,
-                                  color: Colors.white, // Mengubah warna teks menjadi putih
+                                  color: Colors.white,
                                 ),
                               ),
                             ),
+                            if (_errorMessage.isNotEmpty)
+                              Padding(
+                                padding: const EdgeInsets.only(top: 20),
+                                child: Text(
+                                  _errorMessage,
+                                  style: const TextStyle(color: Colors.red),
+                                ),
+                              ),
                           ],
                         ),
                       ),
