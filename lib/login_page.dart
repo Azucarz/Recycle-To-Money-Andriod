@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:smart_waste/profil_user_page.dart';
-import 'profil_user_page.dart';
+import 'worker_main.dart';
+
+//customer page
 
 void main() {
   runApp(const MyApp());
@@ -33,6 +35,10 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  
+  get auth => null;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -130,31 +136,35 @@ class _LoginPageState extends State<LoginPage> {
                                   String password = _passwordController.text;
 
                                   print('Email: $email, Password: $password');
-                                  if (email == 'customer@gmail.com') {
-                                    if (password == 'customer') {
-                                      // Navigate to ProfilPage
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => HomePage()),
-                                            
-                                      );
-                                      debugPrint("Customer");
-                                    } else {
-                                      debugPrint("You are not the user.Please Register");
-                                    }
-                                  } else if (email == 'worker@gmail.com') {
-                                    if (password == 'worker') {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => HomePage()),
-                                        );
-                                        debugPrint("Worker");
-                                    } else {
-                                      debugPrint("You are not the user.Please Register");
-                                    }
+                                 if (email == 'customer@gmail.com') {
+                                  if (password == 'customer') {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => SmartWasteApp()),
+                                    );
+                                    debugPrint("Customer logged in");
+                                  } else {
+                                    debugPrint(
+                                        "Incorrect password for customer");
+                                    // Handle incorrect password for customer
                                   }
+                                } else if (email == 'worker@gmail.com') {
+                                  if (password == 'worker') {
+                                   Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => HomeWorkerPage()),
+                                    );
+                                    debugPrint("Worker logged in");
+                                  } else {
+                                    debugPrint("Incorrect password for worker");
+                                    // Handle incorrect password for worker
+                                  }
+                                } else {
+                                  debugPrint("Email not registered");
+                                  // Handle case where email doesn't match any registered users
+                                }
                                   
 
                                 // }

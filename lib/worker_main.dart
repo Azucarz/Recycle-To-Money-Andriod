@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
-import 'f_bin.dart';  
-import 'f_status.dart';   
-import 'f_wallet.dart';
 import 'package:smart_waste/login_page.dart';
-import 'f_request.dart';  // Import halaman f_request.dart
 
 
 void main() {
-  runApp(SmartWasteApp());
+  runApp(SmartWorkerWasteApp());
 }
 
-class SmartWasteApp extends StatelessWidget {
-  const SmartWasteApp({super.key});
+class SmartWorkerWasteApp extends StatelessWidget {
+  const SmartWorkerWasteApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,23 +17,23 @@ class SmartWasteApp extends StatelessWidget {
         primarySwatch: Colors.green,
         scaffoldBackgroundColor: Colors.green[50],
       ),
-      home: HomePage(),
+      home: HomeWorkerPage(),
     );
   }
 }
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomeWorkerPage extends StatelessWidget {
+  const HomeWorkerPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     // Daftar nama menu
     final List<String> menuNames = [
-      'My Bin',
-      'Status',
+      'Accept Job',
+      'Job Status',
       'Wallet',
-      'Statistics',
-      'Help',
+      'Feedbacks',
+      'Be Customer',
       'Logout',
     ];
     
@@ -57,6 +53,7 @@ class HomePage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                
                 // Logo di atas
                 Image.asset(
                   'assets/image1/rc.jpg',
@@ -64,6 +61,15 @@ class HomePage extends StatelessWidget {
                   height: 120,
                 ),
                 const SizedBox(height: 16), // Jarak antara logo dan tulisan
+                Container(
+                  width: double.infinity,
+                  height: 200,
+                  color: Colors.green[200], // Warna latar belakang untuk kotak foto
+                  child: Center(
+                    child: Text('Foto Rumah', style: TextStyle(color: Colors.green[600])),
+                  ),
+                ),
+                const SizedBox(height: 16),
                 // Tulisan "Smart Waste"
                 Text(
                   'Smart Waste',
@@ -95,31 +101,13 @@ class HomePage extends StatelessWidget {
                         ),
                         child: InkWell(
                           onTap: () {
-                            // Logika navigasi untuk setiap menu
                             if (index == 0) {
-                              // Navigasi ke halaman binpage
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => CustomGridPage(),
-                                ),
-                              );
-                            } if (index == 1) {
-                              // Navigasi ke halaman StatusPage
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>  StatusPage(),
-                                ),
-                              );
-                            } if (index == 2) {
-                              // Navigasi ke halaman StatusPage
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>  WalletPage(),
-                                ),
-                              );
+                              // Navigator.push(
+                              //   context,
+                              //   MaterialPageRoute(
+                              //     builder: (context) => const RequestPickupPage(),
+                              //   ),
+                              // );
                             }
                             if (index == 5) {
                               Navigator.push(
@@ -141,10 +129,10 @@ class HomePage extends StatelessWidget {
                             children: [
                               Icon(
                                 Icons.eco,
-                                size: 48,
+                                size: 18,
                                 color: Colors.green[700],
                               ),
-                              const SizedBox(height: 8),
+                              const SizedBox(height: 5),
                               Text(
                                 menuNames[index],
                                 style: TextStyle(
