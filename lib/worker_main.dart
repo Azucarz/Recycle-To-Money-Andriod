@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:smart_waste/login_page.dart';
+import 'profil_user_page.dart';
 
 
 void main() {
   runApp(SmartWorkerWasteApp());
 }
+
 
 class SmartWorkerWasteApp extends StatelessWidget {
   const SmartWorkerWasteApp({super.key});
@@ -102,12 +104,41 @@ class HomeWorkerPage extends StatelessWidget {
                         child: InkWell(
                           onTap: () {
                             if (index == 0) {
-                              // Navigator.push(
-                              //   context,
-                              //   MaterialPageRoute(
-                              //     builder: (context) => const RequestPickupPage(),
-                              //   ),
-                              // );
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: const Text('Accept Job Now'),
+                                    content:
+                                        const Text('The Number of Houses Today Will Be : 4'),
+                                    actions: <Widget>[
+                                      TextButton(
+                                        onPressed: () =>
+                                            Navigator.pop(context, 'Cancel'),
+                                        child: const Text('Cancel'),
+                                      ),
+                                      TextButton(
+                                        onPressed: () =>
+                                            Navigator.pop(context, 'OK'),
+                                        child: const Text('OK'),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            }
+                            if (index == 4) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SmartWasteApp(),
+                                  
+                                ),
+                                
+                              );
+                              debugPrint('Clear Cache');
+                              debugPrint('Clear Temporary Memory');
+                              debugPrint('Successful Logout');
                             }
                             if (index == 5) {
                               Navigator.push(
