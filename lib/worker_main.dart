@@ -30,7 +30,6 @@ class HomeWorkerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Daftar nama menu
     final List<String> menuNames = [
       'Accept Job',
       'Job Status',
@@ -40,28 +39,26 @@ class HomeWorkerPage extends StatelessWidget {
       'Logout',
     ];
     
-
     return Scaffold(
       body: Stack(
         children: [
-          // Background image
           Positioned.fill(
             child: Image.asset(
               'assets/image2/bg.jpg',
               fit: BoxFit.cover, // Menyesuaikan background agar memenuhi layar
             ),
           ),
-          // Content di tengah
-          Center(
+          Center(     // Content di tengah
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 
-                // Logo di atas
-                Image.asset(
+        
+                Image.asset(  // Logo di atas
                   'assets/image1/rc.jpg',
-                  width: 120,  // Sesuaikan ukuran logo
                   height: 120,
+                  width: 120,  // Sesuaikan ukuran logo
+                 
                 ),
                 const SizedBox(height: 16), // Jarak antara logo dan tulisan
                 Image.asset(
@@ -71,9 +68,9 @@ class HomeWorkerPage extends StatelessWidget {
                 fit: BoxFit.cover,  // Menyesuaikan gambar agar memenuhi kontainer
                 ),
                 const SizedBox(height: 16),
-                // Tulisan "Smart Waste"
+                // Tulisan "Trash Tp Cash"
                 Text(
-                  'Smart Waste',
+                  'Trash To Cash',
                   style: TextStyle(
                     fontSize: 32,
                     fontWeight: FontWeight.bold,
@@ -85,12 +82,12 @@ class HomeWorkerPage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: GridView.builder(
-                    shrinkWrap: true,  // Agar GridView bisa digabung dengan elemen lain
+                    shrinkWrap: true,  
                     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
+                      childAspectRatio: 1,
                       mainAxisSpacing: 16,
                       crossAxisSpacing: 16,
-                      childAspectRatio: 1,
                     ),
                     itemCount: menuNames.length,
                     itemBuilder: (context, index) {
@@ -119,14 +116,14 @@ class HomeWorkerPage extends StatelessWidget {
                                       TextButton(
                                         onPressed: () {
                                           Navigator.pop(context,
-                                              'OK'); // Close the dialog
+                                              'OK'); // will clse the dialog
                                           Navigator.push(
                                             context,
                                             MaterialPageRoute(
                                               builder: (context) =>
-                                                  TaskStatusPage(),
+                                                  f_job_status(),
                                             ),
-                                          ); // Navigate to TaskStatusPage
+                                          ); // will go to TaskStatusPage
                                         },
                                         child: const Text('OK'),
                                         
@@ -158,21 +155,20 @@ class HomeWorkerPage extends StatelessWidget {
                                 ),
                                 
                               );
-                              debugPrint('Clear Cache');
-                              debugPrint('Clear Temporary Memory');
-                              debugPrint('Successful Logout');
+                              debugPrint('Clear Cache'); //debug
+                              debugPrint('Clear Temporary Memory');//debug
+                              debugPrint('Successful Logout'); //debug
                             }
                               if (index == 1) {
                               // Navigasi ke halaman binpage
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => TaskStatusPage(),
+                                  builder: (context) => f_job_status(),
                                 ),
                               );
                               }
 
-                            // Tambahkan logika untuk menu lainnya jika perlu
                           },
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -186,9 +182,9 @@ class HomeWorkerPage extends StatelessWidget {
                               Text(
                                 menuNames[index],
                                 style: TextStyle(
+                                  fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                   color: Colors.green[800],
-                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ],
