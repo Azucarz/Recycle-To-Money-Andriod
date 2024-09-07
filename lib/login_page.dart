@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smart_waste/profil_user_page.dart';
+import 'worker_main.dart';
 
 //customer page
 
@@ -150,7 +151,11 @@ class _LoginPageState extends State<LoginPage> {
                                   }
                                 } else if (email == 'worker@gmail.com') {
                                   if (password == 'worker') {
-                                   
+                                   Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => HomeWorkerPage()),
+                                    );
                                     debugPrint("Worker logged in");
                                   } else {
                                     debugPrint("Incorrect password for worker");
