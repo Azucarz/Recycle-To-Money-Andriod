@@ -117,8 +117,17 @@ class HomeWorkerPage extends StatelessWidget {
                                         child: const Text('Cancel'),
                                       ),
                                       TextButton(
-                                        onPressed: () =>
-                                            Navigator.pop(context, 'OK'),
+                                        onPressed: () {
+                                          Navigator.pop(context,
+                                              'OK'); // Close the dialog
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  TaskStatusPage(),
+                                            ),
+                                          ); // Navigate to TaskStatusPage
+                                        },
                                         child: const Text('OK'),
                                         
                                       ),
