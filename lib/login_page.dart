@@ -46,12 +46,14 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
+          // Konten di atas gambar background
           Center(
             child: SingleChildScrollView(
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
+                  // Menambahkan logo recycle di atas judul
                   Image.asset(
                     'assets/image1/rc.jpg',
                     height: 100,
@@ -63,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 67, 230, 49),
+                      color: Color.fromARGB(255, 67, 230, 49), // Ubah warna teks untuk kontras dengan background
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -115,8 +117,8 @@ class _LoginPageState extends State<LoginPage> {
                             const SizedBox(height: 40.0),
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.green, 
-                                minimumSize: const Size(double.infinity, 50), 
+                                backgroundColor: Colors.green, // Warna tombol hijau
+                                minimumSize: const Size(double.infinity, 50), // Lebar penuh
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
@@ -124,19 +126,21 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                               onPressed: () {
                                 if (_formKey.currentState!.validate()) {
+                                  // Proses login bisa dilakukan di sini
                                   String email = _emailController.text;
                                   String password = _passwordController.text;
 
+                                  // Sebagai contoh, kita akan mencetaknya di konsol
                                   print('Email: $email, Password: $password');
                                   
-
+                                  // Setelah login berhasil, Anda bisa navigasi ke halaman lain
                                 }
                               },
                               child: const Text(
                                 'Login',
                                 style: TextStyle(
                                   fontSize: 18,
-                                  color: Colors.white, 
+                                  color: Colors.white, // Mengubah warna teks menjadi putih
                                 ),
                               ),
                             ),
