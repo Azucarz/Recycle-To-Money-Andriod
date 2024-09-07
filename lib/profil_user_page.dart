@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'f_bin.dart';  
+import 'f_status.dart';   
+import 'f_wallet.dart';
 import 'package:smart_waste/login_page.dart';
 import 'f_request.dart';  // Import halaman f_request.dart
+
 
 void main() {
   runApp(SmartWasteApp());
@@ -29,7 +33,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     // Daftar nama menu
     final List<String> menuNames = [
-      'Request',
+      'My Bin',
       'Status',
       'Wallet',
       'Statistics',
@@ -91,11 +95,29 @@ class HomePage extends StatelessWidget {
                         ),
                         child: InkWell(
                           onTap: () {
+                            // Logika navigasi untuk setiap menu
                             if (index == 0) {
+                              // Navigasi ke halaman binpage
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const RequestPickupPage(),
+                                  builder: (context) => CustomGridPage(),
+                                ),
+                              );
+                            } if (index == 1) {
+                              // Navigasi ke halaman StatusPage
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>  StatusPage(),
+                                ),
+                              );
+                            } if (index == 2) {
+                              // Navigasi ke halaman StatusPage
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>  WalletPage(),
                                 ),
                               );
                             }
