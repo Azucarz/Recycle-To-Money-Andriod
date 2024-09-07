@@ -84,6 +84,8 @@ class RegisterPage extends StatelessWidget {
                     String email = emailController.text;
                     String password = psswordController.text;
                     print('User Name: $uname, Email: $email, Password: $password');
+
+                    
                   },
                   child: Text('Create Account'),
                   style: ElevatedButton.styleFrom(
