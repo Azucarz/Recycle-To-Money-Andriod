@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_waste/login_page.dart';
 import 'f_request.dart';  // Import halaman f_request.dart
 
 void main() {
@@ -35,6 +36,7 @@ class HomePage extends StatelessWidget {
       'Help',
       'Logout',
     ];
+    
 
     return Scaffold(
       body: Stack(
@@ -96,6 +98,19 @@ class HomePage extends StatelessWidget {
                                   builder: (context) => const RequestPickupPage(),
                                 ),
                               );
+                            }
+                            if (index == 5) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => LoginPage(),
+                                  
+                                ),
+                                
+                              );
+                              debugPrint('Clear Cache');
+                              debugPrint('Clear Temporary Memory');
+                              debugPrint('Successful Logout');
                             }
                             // Tambahkan logika untuk menu lainnya jika perlu
                           },
