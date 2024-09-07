@@ -64,13 +64,11 @@ class RequestPickupPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 // Kotak foto rumah
-                Container(
-                  width: double.infinity,
-                  height: 200,
-                  color: Colors.green[200], // Warna latar belakang untuk kotak foto
-                  child: Center(
-                    child: Text('Foto Rumah', style: TextStyle(color: Colors.green[600])),
-                  ),
+                Image.asset(
+                'assets/Hms.jpg',
+                width: double.infinity,
+                height: 200,
+                fit: BoxFit.cover,  // Menyesuaikan gambar agar memenuhi kontainer
                 ),
                 const SizedBox(height: 16),
                 // Keterangan alamat dan nomor rumah

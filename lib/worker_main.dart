@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_waste/login_page.dart';
 import 'profil_user_page.dart';
+import 'f_job_status.dart';
 
 
 void main() {
@@ -63,13 +64,11 @@ class HomeWorkerPage extends StatelessWidget {
                   height: 120,
                 ),
                 const SizedBox(height: 16), // Jarak antara logo dan tulisan
-                Container(
-                  width: double.infinity,
-                  height: 200,
-                  color: Colors.green[200], // Warna latar belakang untuk kotak foto
-                  child: Center(
-                    child: Text('Foto Rumah', style: TextStyle(color: Colors.green[600])),
-                  ),
+                Image.asset(
+                'assets/Mps.jpg',
+                width: double.infinity,
+                height: 200,
+                fit: BoxFit.cover,  // Menyesuaikan gambar agar memenuhi kontainer
                 ),
                 const SizedBox(height: 16),
                 // Tulisan "Smart Waste"
@@ -121,6 +120,7 @@ class HomeWorkerPage extends StatelessWidget {
                                         onPressed: () =>
                                             Navigator.pop(context, 'OK'),
                                         child: const Text('OK'),
+                                        
                                       ),
                                     ],
                                   );
@@ -153,6 +153,16 @@ class HomeWorkerPage extends StatelessWidget {
                               debugPrint('Clear Temporary Memory');
                               debugPrint('Successful Logout');
                             }
+                              if (index == 1) {
+                              // Navigasi ke halaman binpage
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => TaskStatusPage(),
+                                ),
+                              );
+                              }
+
                             // Tambahkan logika untuk menu lainnya jika perlu
                           },
                           child: Column(
