@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:smart_waste/profil_user_page.dart';
 import 'profil_user_page.dart';
+import 'profil_page.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -125,14 +127,16 @@ class _LoginPageState extends State<LoginPage> {
                                 padding: const EdgeInsets.symmetric(vertical: 15.0),
                               ),
                               onPressed: () {
-                                // if (_formKey.currentState!.validate()) {
+
+                                if (_formKey.currentState!.validate()) {
+
                                   String email = _emailController.text;
                                   String password = _passwordController.text;
 
                                   print('Email: $email, Password: $password');
                                   if (email == 'customer@gmail.com') {
                                     if (password == 'customer') {
-                                      // Navigate to ProfilPage
+                  // Navigate to ProfilPage
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
@@ -142,12 +146,26 @@ class _LoginPageState extends State<LoginPage> {
                                       debugPrint("Customer");
                                     } else {
                                       debugPrint("You are not the user.Please Register");
+
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                ProfilePage()),
+                                      );
+                                      debugPrint("Customer logged in");
+                                    } else {
+                                      debugPrint(
+                                          "Incorrect password for customer");
+                                      // Handle incorrect password for customer
+
                                     }
                                   } else if (email == 'worker@gmail.com') {
                                     if (password == 'worker') {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
+
                                             builder: (context) => HomePage()),
                                         );
                                         debugPrint("Worker");
@@ -158,6 +176,23 @@ class _LoginPageState extends State<LoginPage> {
                                   
 
                                 // }
+
+                                            builder: (context) =>
+                                                ProfilePage()),
+                                      );
+                                      debugPrint("Worker logged in");
+                                    } else {
+                                      debugPrint(
+                                          "Incorrect password for worker");
+                                      // Handle incorrect password for worker
+                                    }
+                                  } else {
+                                    debugPrint("Email not registered");
+                                    // Handle case where email doesn't match any registered users
+                                  }
+
+                                }
+
                               },
                               child: const Text(
                                 'Login',
